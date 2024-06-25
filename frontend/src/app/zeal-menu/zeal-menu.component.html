@@ -1,0 +1,56 @@
+<nav>
+  <!-- small menu -->
+  <div class="md:hidden fixed bottom-4 right-4 z-50">
+    <!-- Use an image as the button -->
+    <img
+      #menuButton
+      (click)="toggleMenu()"
+      src="assets/img/zeal_logo.png"
+      alt="Menu"
+      class="menu-button-image"
+    />
+  </div>
+</nav>
+
+<!--small-->
+<div *ngIf="isMenuOpen" [ngStyle]="menuPosition" class="menu-list">
+  <ul>
+    <li>
+      <a routerLink="/" (click)="toggleMenu()" routerLinkActive="text-gray-300"
+        >Home</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/tip-calculator"
+        (click)="toggleMenu()"
+        routerLinkActive="text-gray-300"
+        >Tip Calculator</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/grocery-list"
+        (click)="toggleMenu()"
+        routerLinkActive="text-gray-300"
+        >Grocery List</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/game"
+        (click)="toggleMenu()"
+        routerLinkActive="text-gray-300"
+        >Game</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/weather"
+        (click)="toggleMenu()"
+        routerLinkActive="text-gray-300"
+        >Weather</a
+      >
+    </li>
+  </ul>
+</div>

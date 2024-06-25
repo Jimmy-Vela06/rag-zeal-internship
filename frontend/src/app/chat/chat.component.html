@@ -1,0 +1,25 @@
+<!-- chat.component.html -->
+<div class="chat-container">
+  <!-- Chat messages container -->
+  <div class="chat-messages">
+    <div *ngFor="let chat of chatHistory.slice().reverse()">
+      <div *ngIf="chat.userMessage" class="message user-message">
+        <div class="message-content">{{ chat.userMessage }}</div>
+      </div>
+      <div *ngIf="chat.responseMessage" class="message bot-message">
+        <div class="message-content">{{ chat.responseMessage }}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Input area fixed at the bottom -->
+  <div class="chat-input">
+    <input
+      type="text"
+      [(ngModel)]="userInput"
+      (keyup.enter)="sendMessage()"
+      placeholder="Type your message..."
+    />
+    <button (click)="sendMessage()">Send</button>
+  </div>
+</div>

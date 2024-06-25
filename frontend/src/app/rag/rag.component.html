@@ -1,0 +1,98 @@
+<div class="flex flex-col items-center justify-center pt-10">
+  <div class="max-w-lg w-full px-4">
+    <div [ngClass]="{ 'mt-20': buttonClicked }" class="mb-4">
+      <div class="flex space-x-4">
+        <div class="flex-1">
+          <label for="field1" class="block text-sm font-medium text-gray-700"
+            >Enter Number of Similar Vectors:</label
+          >
+          <input
+            type="text"
+            id="field1"
+            name="field1"
+            [(ngModel)]="similar_vectors"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            placeholder="int 3-10"
+          />
+        </div>
+        <div class="flex-1">
+          <label for="field2" class="block text-sm font-medium text-gray-700"
+            >Enter Length of Chatbot Response:</label
+          >
+          <input
+            type="text"
+            id="field2"
+            name="field2"
+            [(ngModel)]="response_len"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            placeholder="int 10-2000"
+          />
+        </div>
+        <div class="flex-1">
+          <label for="field3" class="block text-sm font-medium text-gray-700"
+            >Enter Temp from 0 to 1:</label
+          >
+          <input
+            type="text"
+            id="field3"
+            name="field3"
+            [(ngModel)]="temp"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            placeholder="float 0-1"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="mb-4">
+      <label for="perspective" class="block text-sm font-medium text-gray-700"
+        >Enter Chatbot Perspective:</label
+      >
+      <input
+        type="text"
+        id="perspective"
+        name="perspective"
+        [(ngModel)]="perspective"
+        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+        placeholder="You are a helpful assistant."
+      />
+    </div>
+    <div class="mb-4">
+      <label for="query" class="block text-sm font-medium text-gray-700"
+        >Enter Query:</label
+      >
+      <input
+        type="text"
+        name="query"
+        [(ngModel)]="query"
+        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        placeholder="Enter your query"
+      />
+    </div>
+    <button
+      (click)="sendQuery()"
+      class="w-full px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+    >
+      {{ queryActive ? "Querying..." : "Send Query" }}
+    </button>
+  </div>
+
+  <div
+    *ngIf="buttonClicked && results_with_context.length > 0"
+    class="max-w-lg w-full mt-8"
+  >
+    <h2 class="text-xl font-bold mb-2 text-center">RAG Results</h2>
+    <div class="p-4 bg-gray-100 border-4 border-gray-500 rounded-md">
+      <pre class="whitespace-pre-wrap">{{ results_with_context }}</pre>
+    </div>
+  </div>
+
+  <div
+    *ngIf="buttonClicked && results_without_context.length > 0"
+    class="max-w-lg w-full mt-8"
+  >
+    <h2 class="text-xl font-bold mb-2 text-center">Non RAG Results</h2>
+    <div class="p-4 bg-gray-100 border-4 border-gray-500 rounded-md">
+      <pre class="whitespace-pre-wrap">{{ results_without_context }}</pre>
+    </div>
+  </div>
+</div>
