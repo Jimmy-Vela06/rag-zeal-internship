@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 
+import { HomeComponent } from './home/home.component';
+
 import { ZealComponent } from './zeal/zeal.component';
 import { RagComponent } from './rag/rag.component';
 
@@ -11,6 +13,7 @@ import { RagComponent } from './rag/rag.component';
 // import { WeatherComponent } from './weather/weather.component';
 
 export const routes: Routes = [
+  { path: '', title: 'home', component: HomeComponent },
   { path: 'zeal', title: 'zeal', component: ZealComponent },
   {
     path: 'rag',
