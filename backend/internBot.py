@@ -345,15 +345,11 @@ async def handle_query(request: QueryRequest):
         raise HTTPException(status_code=500, detail="Internal Server Error")
 
 
-# if __name__ == "__main__":
-#     uvicorn.run(app, host="0.0.0.0", port=8001)
-
-
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8001))  # Use default 8000 for local development
+    port = int(os.environ.get("PORT", 8001))
     uvicorn.run(app, host="0.0.0.0", port=port)

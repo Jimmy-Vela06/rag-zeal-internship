@@ -1,7 +1,7 @@
 /* chat.component.css */
 .chat-container {
-  position: fixed;
-  bottom: 3rem; /* Adjust as needed */
+  align-items: center; /* For flexbox alignment if needed */
+  position: absolute;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -29,7 +29,7 @@
 
 .user-message {
   float: right;
-  background-color: #007bff;
+  background-color: #004d74;
   color: white;
 }
 
@@ -45,20 +45,21 @@
 
 .chat-input {
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .chat-input input[type="text"] {
   width: calc(100% - 70px);
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 10px 0px 0 10px;
   outline: none;
   font-size: 1rem;
 }
 
 .chat-input button {
   width: 4rem;
-  padding: 10px;
+  padding: 10.5px;
   background-color: #34414a;
   color: white;
   border: none;
@@ -68,5 +69,10 @@
 }
 
 .chat-input button:hover {
-  background-color: #0056b3;
+  background-color: #003554;
+}
+
+.custom-placeholder::placeholder {
+  color: #c40c0c;
+  opacity: 0.6;
 }
