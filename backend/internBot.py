@@ -22,6 +22,10 @@ from pptx import Presentation
 import zipfile
 import xml.etree.ElementTree as ET
 import base64
+import sklearn
+
+# pip install scikit-learn
+
 from sklearn.metrics.pairwise import cosine_similarity
 
 # Load environment variables
@@ -341,5 +345,15 @@ async def handle_query(request: QueryRequest):
         raise HTTPException(status_code=500, detail="Internal Server Error")
 
 
+# if __name__ == "__main__":
+#     uvicorn.run(app, host="0.0.0.0", port=8001)
+
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8001)
+    port = int(os.environ.get("PORT", 8001))  # Use default 8000 for local development
+    uvicorn.run(app, host="0.0.0.0", port=port)
