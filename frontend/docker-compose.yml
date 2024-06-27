@@ -1,0 +1,7 @@
+version: "3" # Ensure 'version' is specified properly
+
+services:
+  intern-project:
+    container_name: intern-project-container
+    build: .
+    image: frontend-image:latest
