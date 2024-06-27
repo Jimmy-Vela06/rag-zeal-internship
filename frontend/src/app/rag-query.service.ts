@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 interface ChatResponse {
   response: string;
@@ -10,7 +11,8 @@ interface ChatResponse {
   providedIn: 'root',
 })
 export class RagQueryComponent {
-  private apiUrl = 'https://rag-zeal-backend-73d3730fcbfd.herokuapp.com/';
+  // private apiUrl = 'https://rag-zeal-backend-73d3730fcbfd.herokuapp.com/';
+  private apiUrl = environment.API_RAG_URL;
 
   constructor(private http: HttpClient) {}
 

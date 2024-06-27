@@ -38,4 +38,4 @@ EXPOSE 8001
 ENV NAME World
 
 # Run internbot.py when the container launches
-CMD ["python", "internbot.py"]
+CMD ["python", "internBot.py"]

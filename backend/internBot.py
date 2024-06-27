@@ -49,10 +49,20 @@ logging.basicConfig(level=logging.INFO)
 app = FastAPI()
 
 # Allow CORS for local development
+# origins = [
+#     "http://localhost",
+#     "http://localhost:4200",
+#     "http://localhost:4200/rag",
+# ]
 origins = [
     "http://localhost",
     "http://localhost:4200",
+    "http://localhost:8080",
     "http://localhost:4200/rag",
+    "https://rag-zeal-frontend-aea7c4716c33.herokuapp.com/chat",
+    "https://rag-zeal-frontend-aea7c4716c33.herokuapp.com/zeal",
+    "https://rag-zeal-frontend-aea7c4716c33.herokuapp.com/rag",
+    "https://rag-zeal-frontend-aea7c4716c33.herokuapp.com/",
 ]
 
 app.add_middleware(
@@ -347,7 +357,7 @@ async def handle_query(request: QueryRequest):
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return {"Hello Zealers": "Backend is up and running"}
 
 
 if __name__ == "__main__":

@@ -1,0 +1,11 @@
+version: "3" # Ensure 'version' is specified properly
+
+services:
+  intern-project:
+    container_name: intern-projectcontainer
+    build: .
+    image: intern-project:v1 # Ensure this matches your Dockerfile's final image name
+    ports:
+      - "80:80"
+    expose:
+      - 80

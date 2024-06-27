@@ -24,6 +24,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 interface ChatResponse {
   response: string;
@@ -33,7 +34,8 @@ interface ChatResponse {
   providedIn: 'root',
 })
 export class ChatService {
-  private apiUrl = 'https://rag-zeal-backend-73d3730fcbfd.herokuapp.com/chat'; // Adjusted to include the correct endpoint
+  // private apiUrl = 'https://rag-zeal-backend-73d3730fcbfd.herokuapp.com/chat'; // Adjusted to include the correct endpoint
+  private apiUrl = environment.API_CHAT_URL;
 
   constructor(private http: HttpClient) {}
 
