@@ -10,11 +10,16 @@ RUN npm run build
 
 # Stage 2: Serve the Angular app using nginx
 FROM nginx:stable
-COPY ./default.conf /etc/nginx/conf.d
+
+# Copy nginx configuration
+COPY ./default.conf /etc/nginx/conf.d/default.conf
+
+# Copy built Angular app
 COPY --from=build /app/dist/intern-project/browser /usr/share/nginx/html
 
-EXPOSE $PORT
+# Expose port 80 for HTTP traffic (for documentation purposes)
+# EXPOSE 80
 
 # CMD to start nginx and keep it running
-CMD ["nginx", "-g", "daemon off;"]
+CMD sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'
 
